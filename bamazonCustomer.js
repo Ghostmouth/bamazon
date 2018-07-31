@@ -58,11 +58,12 @@ function start(){
                 }
               }
         } ]).then(function(ans){
-          var item = ans.id;
-          var quantity = parseInt(ans.quant);
-          var totalCost = parseFloat(((item.price) * quantity).toFixed(2));  
-
-          console.log(totalCost)
+          var item = ans.id-1
+          var itemPrice = parseFloat(res[ans.id-1].price);
+          var quantity = parseFloat(ans.quant);
+          var totalCost = itemPrice * quantity;
+         // var totalCost = parseFloat(((item.price) * quantity).toFixed(2));  
+         
 
             // in stock?
             if(res[ans.id].stock_quantity >= quantity){
